@@ -1,0 +1,51 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="logo">ABCCorp</div>
+    <div class="navbar-links">
+      <a href="#" class="nav-link">Home</a>
+      <div class="profile-icon">
+        <span class="profile-text">KA</span> <!-- Use initials here -->
+      </div>
+    </div>
+  </div>
+</nav>
+
+<button class="btn-add-task" (click)="openModal()">Add Task</button>
+
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <h3 class="modal-title">Add Task</h3>
+    <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+      <div class="form-group">
+        <label for="taskName">Task Name</label>
+        <input type="text" id="taskName" [(ngModel)]="task.name" name="name" required class="form-control" placeholder="Enter task name" />
+      </div>
+      <div class="form-group">
+        <label for="taskDescription">Task Description</label>
+        <textarea id="taskDescription" [(ngModel)]="task.description" name="description" required class="form-control" placeholder="Enter task description"></textarea>
+      </div>
+      <div class="modal-buttons">
+        <button type="button" class="btn-cancel" (click)="closeModal()">Cancel</button>
+        <button type="submit" class="btn-submit" [disabled]="!taskForm.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="tasks && tasks.length > 0; else debugNoTasks" class="task-container">
+  <div class="task-grid">
+    <div *ngFor="let task of tasks" class="task-card">
+      <h3 class="task-title">{{ task.name }}</h3>
+      <p class="task-description">{{ task.description }}</p>
+      <button class="btn-primary" >View Details</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #debugNoTasks>
+  <p class="no-tasks-message">Tasks not found or data binding failed.</p>
+  <pre>{{ tasks | json }}</pre> 
+</ng-template>
+
+
+  

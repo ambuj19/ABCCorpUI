@@ -1,0 +1,11 @@
+<div class="auth-progress">
+    <div class="auth-spinner">
+        <mat-spinner [diameter]="40" [color]="'#2c3957'"></mat-spinner>
+    </div>
+    <div class="auth-progress-message">
+        <h1 id="progress-message" *ngIf="loadingStatus; else loadingMessage">Authentication in progress......</h1>
+    </div>
+    <ng-template #loadingMessage>
+        <h1 id="progress-message">Loading......</h1>
+    </ng-template>
+</div>

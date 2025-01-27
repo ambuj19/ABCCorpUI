@@ -1,0 +1,15 @@
+.auth-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .auth-progress-message {
+        margin-left: 20px;
+
+        h1 {
+            color: rgb(47, 26, 66);
+        }
+    }
+}

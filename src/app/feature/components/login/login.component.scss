@@ -1,0 +1,28 @@
+/* Center the login page */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    margin: 0;
+  }
+  
+  /* Card styling */
+  .login-card {
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  
+  /* Button styling */
+  button {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: none;
+  }
+  
