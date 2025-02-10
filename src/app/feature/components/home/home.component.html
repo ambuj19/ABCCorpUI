@@ -36,8 +36,13 @@
   <div class="task-grid">
     <div *ngFor="let task of tasks" class="task-card">
       <h3 class="task-title">{{ task.name }}</h3>
-      <p class="task-description">{{ task.description }}</p>
-      <button class="btn-primary" >View Details</button>
+      <p class="task-description" *ngIf="selectedTaskId === task.taskId">
+        {{ task.description }}
+      </p>
+
+      <button class="btn-primary" (click)="toggleDescription(task.taskId!)">
+        {{ selectedTaskId === task.taskId ? 'Hide Details' : 'View Details' }}
+      </button>
     </div>
   </div>
 </div>

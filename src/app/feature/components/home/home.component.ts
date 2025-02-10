@@ -16,6 +16,7 @@ export class HomeComponent {
   tasks: Task[] = [];
   isModalOpen = false;
   task = { name: '', description: '' };
+  selectedTaskId: number | null = null; 
   constructor(private apiService: ApiService,private http: HttpClient) { }
   ngOnInit(): void {
     this.getTasks();
@@ -54,5 +55,12 @@ export class HomeComponent {
         }
       );
     }
+  }
+  toggleDescription(taskId: number): void {
+    if (!taskId) {
+      console.error('Task ID is undefined');
+      return;
+    }
+    this.selectedTaskId = this.selectedTaskId === taskId ? null : taskId;
   }
 }
